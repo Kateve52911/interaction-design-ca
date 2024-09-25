@@ -1,0 +1,84 @@
+/* Buttons */
+.cta,
+.cta-read-more,
+.cta-input-footer,
+.cta-heart,
+.cta-gamespage,
+.cta-pay,
+.cta-login,
+.cta-input,
+.cta-discount,
+.cta-gamepage,
+.cta-heart-gamespage,
+.cta-input-contactpage,
+.cta-login-contactpage,
+.cta-homepage,
+.cta-delete {
+    background-color: var(--orange);
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.cta-input,
+.cta-input-footer,
+.cta-heart-gamespage,
+.cta-login,
+.cta-discount {
+    border-style: none;
+}
+
+.cta-discount {
+    padding: 14px;
+}
+
+.cta-gamespage {
+    width: 50px;
+    display: block;
+    padding: 10% 15%;
+}
+
+.cta-read-more,
+.cta-heart,
+.cta-input,
+.cta-input-footer,
+.cta-heart-gamespage,
+.cta-input-contactpage,
+.cta-delete {
+    background-color: #3CAAF0;
+}
+
+a.cta-input-footer {
+    padding: 9px;
+}
+
+a.cta-login-contactpage {
+    margin-left: 8%;
+}
+
+a.cta-input-contactpage {
+    margin-left: 6%;
+}
+
+.cta-read-more,
+.cta-heart-gamespage {
+    transition-property: background-color;
+}
+
+.cta-read-more:hover {
+    background-color: var(--orange);
+}
+
+.cta-heart-gamespage:hover {
+    background-color: var(--pinkish);
+}
+
+.cta-input-footer {
+    padding: 5px;
+}
+
+.cta-homepage {
+    margin-top: 17%;
+    margin-bottom: 0%;
+    float: right;
+}

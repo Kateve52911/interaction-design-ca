@@ -1,0 +1,24 @@
+.message {
+    padding: 2%;
+    border: 5px solid grey;
+    color: grey;
+    margin: 10%;
+}
+
+.sucess {
+    color: green;
+    border-color: green;
+    background-color: rgb(122, 206, 122);
+}
+
+.warning {
+    color: orange;
+    border-color: orange;
+    background-color: rgb(251, 220, 164);
+}
+
+.error {
+    color: red;
+    border-color: red;
+    background-color: rgb(235, 131, 131);
+}

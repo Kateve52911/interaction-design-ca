@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="checkout">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/f6ecbff17b.js" crossorigin="anonymous"></script>
+    <title>Gamehub | Checkout</title>
+</head>
+
+<body>
+    <header>
+        <section class="header-flex-conatainer">
+            <input type="checkbox" id="menu-checkbox">
+            <label for="menu-checkbox" class="hamburger-icon"><i class="fas fa-bars fa-2xl"></i></label>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="games.html">Games</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html">About</a>
+            </nav>
+            <a href="index.html"><img src="images/GameHub_Logo.png" alt="gamehub logo" class="logo-header"></a>
+            <a href="checkout-page.html"><i class="fa-solid fa-cart-shopping fa-xl icon-cart view-cart"></i></a>
+
+            <a href=" contact.html"><i class="fa-regular fa-user fa-xl icon-user"></i></a>
+            </div>
+        </section>
+    </header>
+
+    <main>
+
+        <Section class="h1heading">
+            <h1>Checkout</h1>
+        </Section>
+
+        <Section class="checkout-container">
+            <Section class="checkout-forms checkout-containerthree">
+                <div>
+                    <h2 class="payment-info-header">Payment Information:</h2>
+                    <form action="POST">
+                        <div class="payment_radio">
+                            <form action="">
+                                <label for="Payment-type" class="radio-checkout">Card</label>
+                                <input type="radio" name="Paymentype" id="Payment-type" class="radio-checkout">
+                                <label for="Payment_type" class="radio_checkout">Paypal</label>
+                                <input type="radio" name="Paymentype" id="Payment-type" class="radio-checkout">
+                                <label for="Payment_type" class="radio_checkout">Vipps</label>
+                                <input type="radio" name="Paymentype" id="Payment-type" class="radio-checkout">
+                            </form>
+                        </div>
+                        <div class="payment-info">
+                            <form action="checkout-sucess.html">
+                                <input type="text" name="Cardholder-name" class="checkout-page"
+                                    placeholder="Cardholders name">
+                                <input type="text" name="Card_number" class="checkout-page" placeholder="Card number">
+                                <input type="text" name="expirationdate" class="checkout-page" placeholder="MM / YY">
+                                <input type="text" name="expirationCVC" class="checkout-page" placeholder="CVC">
+                                <input type="submit" value="Pay" class="cta-login">
+                            </form>
+                        </div>
+                    </form>
+                </div>
+            </Section>
+
+            <div class="customer-details checkout-containerone">
+                <p class="header-customer-detail">Contact</p>
+                <p>olanormann@gmail.com</p>
+
+                <hr />
+
+                <p class="header-customer-detail">Address</p>
+                <p>Gammel gate 1</p>
+                <p>01234 Oslo</p>
+                <p>Norway</p>
+
+                <hr />
+
+                <p class="header-customer-detail">Shipping medthod</p>
+                <p>Download</p>
+
+            </div>
+            <div>
+                <div class="discount-container">
+                    <form action="POST">
+                        <input class="discount-input" type="text" name="discountcode" placeholder="Enter discount code">
+                        <a href="checkout-sucess.html" class="cta-discount discount-input">Apply</a>
+                    </form>
+                </div>
+                <div class="cart-container checkout-summary"></div>
+
+            </div>
+
+            <div class="checkout-page"></div>
+
+
+
+    </main>
+    <footer>
+        <section class="contact-info-footer">
+            <Section class="contact-text-footer">
+                <Section class="info-footer">
+                    <p class="text-footer">Address:</p>
+                    <p class="text-footer">1234 Street,Town </p>
+                    <p class="text-footer">State, 09765, Country</p>
+                </Section>
+                <Section class="info-footer">
+                    <p class="text-footer">Email:</p>
+                    <p class="text-footer">post@gamehub.com</p>
+                </Section>
+                <Section class="info-footer">
+                    <p class="text-footer">Phone:</p>
+                    <p class="text-footer">09645725</p>
+                </Section>
+            </Section>
+
+            <section class="social-media">
+                <nav class="footer-social">
+                    <ul>
+                        <li><a href="contact.html"><i class="fa-solid fa-video fa-2xl icon-footer"></i></a></li>
+                        <li><a href="contact.html"><i class="fa-brands fa-facebook fa-2xl icon-footer"></i></a></li>
+                        <li><a href="contact.html"><i class="fa-brands fa-instagram fa-2xl icon-footer"></i></a></li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section class="newsletter">
+                <form action="FORM">
+                    <input type="email" name="newsletter" id="newsletter" placeholder="Join our newsletter!"
+                        class="input-newsletter">
+                    <a href="contact.html" class="cta-input-footer">Submit</a>
+                </form>
+            </section>
+
+        </section>
+    </footer>
+
+    <script type="module" src="js/shoppingCart.js"></script>
+
+</body>
+
+</html>

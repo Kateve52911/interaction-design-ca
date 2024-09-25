@@ -1,0 +1,112 @@
+/* Fonts */
+h1,
+h2,
+h3 {
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+p,
+#first-section-text,
+input,
+textarea,
+label,
+input.cardholder,
+#contact-info,
+.newsletter,
+.game-text,
+nav a,
+nav li,
+a.game-link,
+a.cta-login-contactpage,
+a.cta-input-contactpage,
+.cta-discount,
+.cta,
+.cta-homepage,
+.shopping-cart {
+    font-family: var(--font_family);
+}
+
+.h2-item,
+.h1heading {
+    padding-left: 5%;
+}
+
+.h2-item {
+    padding-top: 3%;
+}
+
+.h2-item-topbar {
+    padding: 1% 38%;
+}
+
+.h2-item-topbar,
+.cta-login,
+a.nav-gamespage {
+    color: var(--black);
+}
+
+.contact-info,
+a.nav-gamespage,
+input,
+textarea,
+label {
+    font-size: larger;
+}
+
+.contact-info {
+    font-size: x-large;
+}
+
+
+.game-link,
+.h1heading,
+.h1heading-homepage {
+    font-size: xx-large;
+}
+
+#first-section-text,
+#about-info-text,
+.shopping-cart {
+    font-size: large;
+}
+
+.text-footer,
+.info-footer,
+.newsletter,
+.payment-radio {
+    font-size: small;
+}
+
+.order-confirmed,
+.payment-info,
+input.cardholder,
+a.cta-input-footer,
+li.nav-gamespage {
+    font-size: medium;
+}
+
+header,
+.icon-footer,
+.heart-icon-gamepage,
+nav a,
+.cta,
+.cta-read-more,
+.cta-input-footer,
+.cta-heart,
+.cta-gamespage,
+.ctapay,
+.cta-login,
+.cta-input,
+.cta-discount,
+.cta-heart-gamespage,
+.cta-gamepage,
+#first-section-text,
+footer,
+.icon-user,
+a.game-link,
+a.cta-login-contactpage,
+a.cta-input-contactpage,
+.cta-homepage,
+.icon-cart {
+    color: var(--white);
+}
