@@ -24,7 +24,7 @@ function filterGames(gameData, condition) {
 
 function generateSubheading(subheading) {
     return `<div class="genre-container">
-    <h2 class="h2-title-games-page">${subheading}</h2></div>`;
+    <h2 class="h2-title-index-page">${subheading}</h2></div>`;
 }
 
 function generateGameHTML(game) {
