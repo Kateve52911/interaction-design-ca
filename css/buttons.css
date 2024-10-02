@@ -28,12 +28,13 @@
     border-style: none;
 }
 
-.cta-discount {
+.cta-discount,
+.cta-heart-gamespage {
     padding: 14px;
 }
 
 .cta-gamespage {
-    width: 50px;
+    width: 100px;
     display: block;
     padding: 10% 15%;
 }
@@ -81,4 +82,5 @@ a.cta-input-contactpage {
     margin-top: 17%;
     margin-bottom: 0%;
     float: right;
+    padding: 5% 10%;
 }

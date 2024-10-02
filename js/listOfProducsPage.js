@@ -26,9 +26,9 @@ function createHTMLGamesPage(games) {
             if (game.genre === genre) {
                 gamesHTML += `
                                             <div class="game">
-                                            <h3>${game.title}</h3>
+                                            <h3 class="game-page-title-games">${game.title}</h3>
                                             <img class="games-page-image" src="${game.image.url}" alt = "${game.title}">
-                                            <p>$${game.price}</p>
+                                            <p class="price-text">$${game.price}</p>
                                             <div class="buttons-gamespage">
                                                 <a href="product-page.html?id=${game.id}" class="cta-gamespage">View</a> 
                                                 <i class="fa-solid fa-heart heart-icon-gamepage cta-heart-gamespage""></i>

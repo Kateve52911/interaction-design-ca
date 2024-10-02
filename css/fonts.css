@@ -22,7 +22,9 @@ a.cta-input-contactpage,
 .cta-discount,
 .cta,
 .cta-homepage,
-.shopping-cart {
+.shopping-cart,
+.price-text,
+.game-page-title-games {
     font-family: var(--font_family);
 }
 
@@ -50,7 +52,8 @@ a.nav-gamespage,
 input,
 textarea,
 label,
-nav a {
+nav a,
+.price-text {
     font-size: larger;
 }
 
@@ -63,14 +66,16 @@ nav a {
 .h1heading,
 .h1heading-homepage,
 .h1heading-gamespage,
-.h2-title-index-page {
+.h2-title-index-page,
+.game-page-title-games {
     font-size: xx-large;
 }
 
 #first-section-text,
 #about-info-text,
 .shopping-cart,
-.game-text {
+.game-text,
+.cta-gamespage {
     font-size: large;
 }
 
