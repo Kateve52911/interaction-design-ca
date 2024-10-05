@@ -108,8 +108,16 @@ input.input-newsletter {
 }
 
 .checkout-button-preview {
-    margin-top: 30%;
+    margin-top: 10%;
     margin-right: 10%;
+}
+
+.total-cost-preview {
+    margin-left: 180px;
+}
+
+.h4-cart-preview {
+    margin-left: 20px;
 }
 
 /* Topbar */

@@ -58,10 +58,10 @@ nav a,
 }
 
 .contact-info,
-.game-page-title-games {
+.game-page-title-games,
+.h4-cart-preview {
     font-size: x-large;
 }
-
 
 .game-link,
 .h1heading,
@@ -75,7 +75,8 @@ nav a,
 #about-info-text,
 .shopping-cart,
 .game-text,
-.cta-gamespage {
+.cta-gamespage,
+.total-cost-preview {
     font-size: large;
 }
 

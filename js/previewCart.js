@@ -34,8 +34,8 @@ function updateCartDisplay(cart) {
             </div>`
         ).join('');
 
-        cartContainer.innerHTML += `<div class="total-cost">
-        <h3>Total Cost: $${totalCost.toFixed(2)}</h3>
+        cartContainer.innerHTML += `<div class="total-cost-preview">
+        <h4>Total Cost: $${totalCost.toFixed(2)}</h4>
         </div>`;
 
         cartContainer.innerHTML += `<div class="checkout-button-preview"><a href="checkout-page.html" class="checkout-button">Checkout</a></div>`
