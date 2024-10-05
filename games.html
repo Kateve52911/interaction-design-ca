@@ -38,8 +38,15 @@
                 <a href="about.html">About</a>
             </nav>
             <a href="index.html"><img src="images/GameHub_Logo.png" alt="gamehub logo" class="logo-header"></a>
-            <a href="checkout-page.html"><i class="fa-solid fa-cart-shopping fa-xl icon-cart view-cart"><span
-                        class="shopping-cart">0</span></i></a>
+            <div class="cart-container-header">
+                <a href="checkout-page.html"><i class="fa-solid fa-cart-shopping fa-xl icon-cart view-cart"><span
+                            class="shopping-cart" id="cart-counter">0</span></i></a>
+                <div class="cart-preview" id="cart-preview">
+                    <h4>Shopping Cart</h4>
+                    <ul id="cart-items"></ul>
+                </div>
+            </div>
+
 
             <a href=" contact.html"><i class="fa-regular fa-user fa-xl icon-user"></i></a>
             </div>
@@ -113,6 +120,8 @@
         </section>
     </footer>
     <script type="module" src="js/listOfProducsPage.js"></script>
+    <script type="module" src="js/productPage.js"></script>
+    <script type="module" src="js/previewCart.js"></script>
 </body>
 
 </body>

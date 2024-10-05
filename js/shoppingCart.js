@@ -1,92 +1,47 @@
 import { getCartContainer, getCartOrEmptyCart } from './utility/utils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const cartContainer = getCartContainer();
-
     const cart = getCartOrEmptyCart();
-
-    updateCartDisplay(cart)
+    updateCartDisplay(cart);
 });
 
 /**
- * Removes items from the cart if one presses button with bin icon on it. 
- * It checks to see if the list is non-empty.
- * @param {*} itemId - the id of the item that is in the list. 
+ * Adds an item to the cart or increases the quantity if it already exists.
+ * @param {*} newItem - the item to add or increase in the cart.
  */
-function removeFromCart(itemId) {
+export function addToCart(newItem) {
     let cart = getCartOrEmptyCart();
-    const index = cart.findIndex(item => item.id === itemId);
-    if (index !== -1) {
-        cart.splice(index, 1);
+
+    // Check if the item already exists in the cart
+    const existingItem = cart.find(item => item.id === newItem.id);
+
+    if (existingItem) {
+        // If item already exists, increase the quantity
+        existingItem.quantity += 1;
+    } else {
+        // If the item doesn't exist, add it with quantity of 1
+        newItem.quantity = 1;
+        cart.push(newItem);
     }
+
     localStorage.setItem('shoppingCart', JSON.stringify(cart));
-
     updateCartDisplay(cart);
-
 }
 
 /**
- * Creates the HTMl for the checkout page. Also calculates the total cost. 
- * Also listens for an event where one removes an item from the list. After it is removed, it updates the HTML
- * @param {*} cart - where the items are stored. 
+ * Removes or decreases quantity from the cart if one presses the minus button. 
+ * If the item quantity is 1, remove the item entirely.
+ * @param {*} itemId - the id of the item to modify.
  */
-function updateCartDisplay(cart) {
-    const cartContainer = getCartContainer();
-    if (cart.length === 0) {
-        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-    } else {
-        const totalCost = cart.reduce((acc, item) => acc + item.price, 0);
-        cartContainer.innerHTML = cart.map(item =>
-            `<div class="cart-item" data-id="${item.id}">
-                <img src="${item.image.url}" alt="${item.title}" class="gameimage-checkout">
-                <div class="details-checkout">
-                    <h2>${item.title}</h2>
-                    <p>${item.genre}</p>
-                    <p>$${item.price}</p>
-                    <button type="button" class="cta-delete"><i class="fa-solid fa-trash-can" style="color: #feffff;"></i></button>
-                </div>
-                
-            </div>`
-        ).join('');
-
-        cartContainer.innerHTML += `<div class="total-cost">
-        <h3>Total Cost: $${totalCost.toFixed(2)}</h3>
-        </div>`;
-    };
-
-    document.querySelectorAll('.cta-delete').forEach(button => {
-        button.addEventListener('click', function () {
-            const itemId = this.parentElement.parentElement.getAttribute('data-id');
-            removeFromCart(itemId);
-        })
-    });
-};
-
-
-import { getCartContainer, getCartOrEmptyCart } from './utility/utils.js';
-
-document.addEventListener('DOMContentLoaded', () => {
-    const cartContainer = getCartContainer();
-
-    const cart = getCartOrEmptyCart();
-
-    updateCartDisplay(cart)
-});
-
-/**
- * Removes items or decreases the quantity from the cart if one presses button with bin icon on it. 
- * It checks to see if the list is non-empty.
- * @param {*} itemId - the id of the item that is in the list. 
- */
-function removeFromCart(itemId) {
+export function removeFromCart(itemId) {
     let cart = getCartOrEmptyCart();
     const index = cart.findIndex(item => item.id === itemId);
 
     if (index !== -1) {
         if (cart[index].quantity > 1) {
-            cart[index].quantity -= 1;  // Decrease the quantity
+            cart[index].quantity -= 1; // Decrease quantity
         } else {
-            cart.splice(index, 1);  // Remove the item if the quantity is 1
+            cart.splice(index, 1); // Remove item if quantity is 1
         }
     }
 
@@ -95,47 +50,41 @@ function removeFromCart(itemId) {
 }
 
 /**
- * Increases the quantity of an item in the cart.
- * @param {*} itemId - the id of the item to increase the quantity.
+ * Ensures that each item in the cart has a quantity field initialized to 1.
+ * @param {*} cart - the cart to check.
  */
-function addToCart(itemId) {
-    let cart = getCartOrEmptyCart();
-    const index = cart.findIndex(item => item.id === itemId);
-
-    if (index !== -1) {
-        cart[index].quantity += 1;  // Increase the quantity
-    }
-
-    localStorage.setItem('shoppingCart', JSON.stringify(cart));
-    updateCartDisplay(cart);
+export function initializeCartQuantities(cart) {
+    cart.forEach(item => {
+        if (!item.quantity) {
+            item.quantity = 1; // Set initial quantity to 1 if it doesn't exist
+        }
+    });
 }
 
 /**
- * Creates the HTMl for the checkout page. Also calculates the total cost. 
- * Also listens for an event where one adjusts the quantity of an item.
- * @param {*} cart - where the items are stored. 
+ * Updates the checkout display, showing the items in the cart and allowing quantity changes.
+ * @param {*} cart - the current cart items.
  */
 function updateCartDisplay(cart) {
+    initializeCartQuantities(cart); // Initialize quantities before rendering
+
     const cartContainer = getCartContainer();
 
     if (cart.length === 0) {
         cartContainer.innerHTML = '<p>Your cart is empty.</p>';
     } else {
         const totalCost = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-
         cartContainer.innerHTML = cart.map(item =>
             `<div class="cart-item" data-id="${item.id}">
-                <img src="${item.image.url}" alt="${item.title}" class="gameimage-checkout">
                 <div class="details-checkout">
-                    <h2>${item.title}</h2>
-                    <p>${item.genre}</p>
-                    <p>$${item.price} x ${item.quantity}</p>
-                    <div class="quantity-controls">
-                        <button type="button" class="cta-decrease">-</button>
-                        <span class="item-quantity">${item.quantity}</span>
-                        <button type="button" class="cta-increase">+</button>
+                    <div><img src="${item.image.url}" alt="${item.title}" class="gameimage-checkout-cart"></div>
+                    <div><h2>${item.title}</h2></div>
+                    <div><p>$${item.price}</p></div>
+                    <div class="buttons-checkout-details">
+                        <button class="minus"> - </button>
+                        <span> ${item.quantity} </span>
+                        <button class="pluss"> + </button>
                     </div>
-                    <button type="button" class="cta-delete"><i class="fa-solid fa-trash-can" style="color: #feffff;"></i></button>
                 </div>
             </div>`
         ).join('');
@@ -145,41 +94,22 @@ function updateCartDisplay(cart) {
         </div>`;
     }
 
-    // Event listeners for quantity adjustment
-    document.querySelectorAll('.cta-increase').forEach(button => {
+    // Event listeners for increasing quantity
+    document.querySelectorAll('.pluss').forEach(button => {
         button.addEventListener('click', function () {
             const itemId = this.parentElement.parentElement.parentElement.getAttribute('data-id');
-            addToCart(itemId);  // Increase the quantity
+            const item = cart.find(item => item.id === itemId);
+            addToCart(item);  // Increase the quantity
         });
     });
 
-    document.querySelectorAll('.cta-decrease').forEach(button => {
+    // Event listeners for decreasing quantity
+    document.querySelectorAll('.minus').forEach(button => {
         button.addEventListener('click', function () {
             const itemId = this.parentElement.parentElement.parentElement.getAttribute('data-id');
-            removeFromCart(itemId);  // Decrease the quantity or remove item if quantity is 1
-        });
-    });
-
-    // Event listeners for removing items completely
-    document.querySelectorAll('.cta-delete').forEach(button => {
-        button.addEventListener('click', function () {
-            const itemId = this.parentElement.parentElement.getAttribute('data-id');
-            removeCompletelyFromCart(itemId);  // Remove the item completely
+            removeFromCart(itemId);  // Decrease the quantity or remove item
         });
     });
 }
 
-/**
- * Removes the item completely from the cart.
- * @param {*} itemId - the id of the item to remove from the cart.
- */
-function removeCompletelyFromCart(itemId) {
-    let cart = getCartOrEmptyCart();
-    const index = cart.findIndex(item => item.id === itemId);
-    if (index !== -1) {
-        cart.splice(index, 1);  // Remove the item
-    }
-    localStorage.setItem('shoppingCart', JSON.stringify(cart));
-    updateCartDisplay(cart);
-}
 

@@ -57,7 +57,8 @@ nav a,
     font-size: larger;
 }
 
-.contact-info {
+.contact-info,
+.game-page-title-games {
     font-size: x-large;
 }
 
@@ -66,8 +67,7 @@ nav a,
 .h1heading,
 .h1heading-homepage,
 .h1heading-gamespage,
-.h2-title-index-page,
-.game-page-title-games {
+.h2-title-index-page {
     font-size: xx-large;
 }
 

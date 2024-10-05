@@ -24,7 +24,9 @@
 .cta-input-footer,
 .cta-heart-gamespage,
 .cta-login,
-.cta-discount {
+.cta-discount,
+.minus,
+.pluss {
     border-style: none;
 }
 
@@ -45,7 +47,9 @@
 .cta-input-footer,
 .cta-heart-gamespage,
 .cta-input-contactpage,
-.cta-delete {
+.cta-delete,
+.minus,
+.pluss {
     background-color: #3CAAF0;
 }
 
@@ -83,4 +87,22 @@ a.cta-input-contactpage {
     margin-bottom: 0%;
     float: right;
     padding: 5% 10%;
+}
+
+.checkout-button {
+    display: block;
+    text-align: center;
+    background-color: var(--head_foot_blue);
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.minus,
+.pluss {
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: large;
 }

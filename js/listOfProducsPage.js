@@ -8,7 +8,7 @@ const gameData = await getGameDetails();
 allGamesContainer.innerHTML = `<div class="spinner-games-page"></div>`
 setTimeout(function () {
     createHTMLGamesPage(gameData);
-}, 1000, gameData)
+}, 0, gameData)
 
 /**
  * Creates the HTML for the page where all the games are displayed. 
