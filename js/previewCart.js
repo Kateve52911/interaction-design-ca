@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartDisplay(cart);
 });
 
+
 /**
  * Updates the checkout display, showing the items in the cart and allowing quantity changes.
  * @param {*} cart - the current cart items.

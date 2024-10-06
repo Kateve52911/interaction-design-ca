@@ -68,5 +68,5 @@ setTimeout(function () {
     catch (error) {
         messageContainer.innerHTML = message;
     }
-}, 1000)
+}, 0)
 
