@@ -17,7 +17,7 @@ function updateCartDisplay(cart) {
     const cartContainer = document.querySelector('#cart-items')
 
     if (cart.length === 0) {
-        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+
     } else {
         const totalCost = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
         cartContainer.innerHTML = cart.map(item =>
@@ -38,8 +38,6 @@ function updateCartDisplay(cart) {
         cartContainer.innerHTML += `<div class="total-cost-preview">
         <h4>Total Cost: $${totalCost.toFixed(2)}</h4>
         </div>`;
-
-        cartContainer.innerHTML += `<div class="checkout-button-preview"><a href="checkout-page.html" class="checkout-button">Checkout</a></div>`
     }
 
     // Event listeners for increasing quantity

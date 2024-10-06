@@ -108,8 +108,8 @@ input.input-newsletter {
 }
 
 .checkout-button-preview {
-    margin-top: 10%;
     margin-right: 10%;
+    margin-left: 10%;
 }
 
 .total-cost-preview {
@@ -768,6 +768,17 @@ input.radio-checkout {
 
     .hamburger-icon {
         margin-top: 10%;
+    }
+
+    /* Shopping Cart */
+    .cart-preview {
+        display: none;
+        position: fixed;
+        width: 300px;
+        background-color: var(--orange);
+        color: #fff;
+        inset: 0 0 0 auto;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
 
     /* Fonts */

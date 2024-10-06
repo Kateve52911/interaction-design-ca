@@ -36,9 +36,18 @@ export function createMessage(type = "success", message = "No message") {
  * This function grabs the shopping-cart container. 
  * @returns - the shopping cart that is used in the checkout process. 
  */
-export function getCartContainer() {
+/*export function getCartContainer() {
     return document.querySelector('.cart-container');
+}*/
+
+export function getCartContainer() {
+    let cartContainer = document.querySelector('.cart-container');
+    if (cartContainer === null) {
+        cartContainer = document.createElement('div');
+    };
+    return cartContainer;
 }
+
 
 /**
  * This retrives the information in the local storage and parses it into a string

@@ -117,7 +117,6 @@ function addToShoppingCart(gameData) {
 
     showCartPopup();
     updateCartCounter();
-
 }
 
 

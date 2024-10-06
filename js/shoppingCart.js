@@ -2,6 +2,7 @@ import { getCartContainer, getCartOrEmptyCart } from './utility/utils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const cart = getCartOrEmptyCart();
+    console.log(cart);
     updateCartDisplay(cart);
 });
 
@@ -35,18 +36,21 @@ export function addToCart(newItem) {
  */
 export function removeFromCart(itemId) {
     let cart = getCartOrEmptyCart();
-    const index = cart.findIndex(item => item.id === itemId);
 
-    if (index !== -1) {
-        if (cart[index].quantity > 1) {
-            cart[index].quantity -= 1; // Decrease quantity
-        } else {
-            cart.splice(index, 1); // Remove item if quantity is 1
+    if (cart.length > 0) {
+        const index = cart.findIndex(item => item.id === itemId);
+
+        if (index !== -1) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1; // Decrease quantity
+            } else {
+                cart.splice(index, 1); // Remove item if quantity is 1
+            }
         }
-    }
 
-    localStorage.setItem('shoppingCart', JSON.stringify(cart));
-    updateCartDisplay(cart);
+        localStorage.setItem('shoppingCart', JSON.stringify(cart));
+        updateCartDisplay(cart);
+    }
 }
 
 /**
@@ -61,17 +65,19 @@ export function initializeCartQuantities(cart) {
     });
 }
 
+
 /**
  * Updates the checkout display, showing the items in the cart and allowing quantity changes.
  * @param {*} cart - the current cart items.
  */
 function updateCartDisplay(cart) {
-    initializeCartQuantities(cart); // Initialize quantities before rendering
+    //initializeCartQuantities(cart); // Initialize quantities before rendering
 
     const cartContainer = getCartContainer();
-
+    console.log("dingus");
+    console.log(cartContainer);
     if (cart.length === 0) {
-        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+
     } else {
         const totalCost = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
         cartContainer.innerHTML = cart.map(item =>
@@ -91,8 +97,8 @@ function updateCartDisplay(cart) {
 
         cartContainer.innerHTML += `<div class="total-cost">
         <h3>Total Cost: $${totalCost.toFixed(2)}</h3>
-        </div>`
-    };
+        </div>`;
+    }
 
     // Event listeners for increasing quantity
     document.querySelectorAll('.pluss').forEach(button => {
