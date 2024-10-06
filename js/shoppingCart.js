@@ -91,8 +91,8 @@ function updateCartDisplay(cart) {
 
         cartContainer.innerHTML += `<div class="total-cost">
         <h3>Total Cost: $${totalCost.toFixed(2)}</h3>
-        </div>`;
-    }
+        </div>`
+    };
 
     // Event listeners for increasing quantity
     document.querySelectorAll('.pluss').forEach(button => {
