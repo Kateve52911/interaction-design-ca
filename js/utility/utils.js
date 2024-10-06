@@ -1,7 +1,6 @@
 
 const messageContainer = document.querySelector(".message-container");
 const message = createMessage();
-
 /**
  * This is a function that calls to the API. 
  * It adds it to a variable called gameData which is used through the page. 
@@ -11,7 +10,6 @@ export async function getGameDetails(url = "https://v2.api.noroff.dev/gamehub/")
         const response = await fetch(url);
         const results = await response.json();
         const gameData = results.data;
-
         return gameData;
     }
     catch (error) {
@@ -36,9 +34,6 @@ export function createMessage(type = "success", message = "No message") {
  * This function grabs the shopping-cart container. 
  * @returns - the shopping cart that is used in the checkout process. 
  */
-/*export function getCartContainer() {
-    return document.querySelector('.cart-container');
-}*/
 
 export function getCartContainer() {
     let cartContainer = document.querySelector('.cart-container');

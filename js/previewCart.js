@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cart = getCartOrEmptyCart();
     updateCartDisplay(cart);
 });
-
-
 /**
  * Updates the checkout display, showing the items in the cart and allowing quantity changes.
  * @param {*} cart - the current cart items.
@@ -17,7 +15,7 @@ function updateCartDisplay(cart) {
     const cartContainer = document.querySelector('#cart-items')
 
     if (cart.length === 0) {
-
+        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
     } else {
         const totalCost = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
         cartContainer.innerHTML = cart.map(item =>

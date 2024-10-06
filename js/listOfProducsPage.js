@@ -7,8 +7,9 @@ const gameData = await getGameDetails();
 
 allGamesContainer.innerHTML = `<div class="spinner-games-page"></div>`
 setTimeout(function () {
+    console.log(gameData);
     createHTMLGamesPage(gameData);
-}, 1000, gameData)
+}, 0, gameData)
 
 /**
  * Creates the HTML for the page where all the games are displayed. 
@@ -25,15 +26,15 @@ function createHTMLGamesPage(games) {
         for (let game of games) {
             if (game.genre === genre) {
                 gamesHTML += `
-                                            <div class="game">
-                                            <h3 class="game-page-title-games">${game.title}</h3>
-                                            <img class="games-page-image" src="${game.image.url}" alt = "${game.title}">
-                                            <p class="price-text">$${game.price}</p>
-                                            <div class="buttons-gamespage">
-                                                <a href="product-page.html?id=${game.id}" class="cta-gamespage">View</a> 
-                                                <i class="fa-solid fa-heart heart-icon-gamepage cta-heart-gamespage""></i>
-                                            </div>
-                                            </div>`
+                    <div class="game">
+                    <h3 class="game-page-title-games">${game.title}</h3>
+                    <img class="games-page-image" src="${game.image.url}" alt = "${game.title}">
+                    <p class="price-text">$${game.price}</p>
+                    <div class="buttons-gamespage">
+                        <a href="product-page.html?id=${game.id}" class="cta-gamespage">View</a> 
+                        <i class="fa-solid fa-heart heart-icon-gamepage cta-heart-gamespage""></i>
+                    </div>
+                    </div>`
             };
         };
         gamesHTML += `</div>`;
@@ -41,5 +42,3 @@ function createHTMLGamesPage(games) {
 
     allGamesContainer.innerHTML = gamesHTML;
 };
-
-

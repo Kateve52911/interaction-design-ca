@@ -71,13 +71,11 @@ export function initializeCartQuantities(cart) {
  * @param {*} cart - the current cart items.
  */
 function updateCartDisplay(cart) {
-    //initializeCartQuantities(cart); // Initialize quantities before rendering
+    initializeCartQuantities(cart); // Initialize quantities before rendering
 
     const cartContainer = getCartContainer();
-    console.log("dingus");
-    console.log(cartContainer);
     if (cart.length === 0) {
-
+        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
     } else {
         const totalCost = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
         cartContainer.innerHTML = cart.map(item =>

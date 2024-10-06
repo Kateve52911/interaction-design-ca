@@ -28,12 +28,14 @@ async function init() {
             document.querySelector(".add-to-cart").addEventListener('click', () => {
                 addToShoppingCart(gameData);
             });
-        }, 0, gameData);
+        }, 1000, gameData);
     }
     catch (error) {
         messageContainer.innerHTML = message;
     }
 };
+
+
 
 /**
  * Creates the HTML for the product page
@@ -118,9 +120,6 @@ function addToShoppingCart(gameData) {
     showCartPopup();
     updateCartCounter();
 }
-
-
-
 init();
 updateCartCounter();
 
